@@ -4,7 +4,6 @@ path = require('path')
 browser_sync = require('browser-sync')
 reload = browser_sync.reload
 sass = require('gulp-sass')
-wrap_amd = require 'gulp-wrap-amd'
 concat = require 'gulp-concat'
 insert = require 'gulp-insert'
 
@@ -20,7 +19,7 @@ gulp.task 'compass', ->
 gulp.task 'coffee', ->
     gulp.src('src/scripts/main.coffee', read: false).pipe($.plumber()).pipe($.browserify(
         debug: true
-        insertGlobals: false
+        insertGlobals: true
         transform: [ 'coffeeify' ]
         extensions: [ '.coffee' ])).pipe($.rename('app.js')).pipe gulp.dest('dist/scripts')
 
@@ -48,6 +47,7 @@ gulp.task 'default', [
     'coffee'
     'images'
     'templates'
+    'client-templates'
     'browser-sync'
 ], ->
     gulp.watch 'src/stylesheets/*.scss', [

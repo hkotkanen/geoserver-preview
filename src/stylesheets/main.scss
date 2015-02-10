@@ -3,7 +3,7 @@ body, * {
     background: #283772;
 }
 .container {
-    width: 400px;
+    width: 1000px;
     height: auto;
     border: 1px solid #ccc;
     background: #fff;
@@ -14,7 +14,12 @@ body, * {
     border-radius: 3px;
     margin: 0 auto;
     padding: 35px;
-    h1 {
+    h1, h2 {
         text-align: center;
     }
+}
+
+.map {
+    height: 400px;
+    width: 100%;
 }
