@@ -10,4 +10,7 @@ printRequest = (req, res) ->
     # console.log v for k,v of req.query when k == 'layers'
     # layerlist = (v for k,v of req.query when k == 'layers').split ','
     layers = v for k,v of req.query when k == 'layers'
-    res.render 'layerlist', { layers: layers.split ',' }
+    if layers && layers.length > 0
+        res.render 'layerlist', { layers: layers.split ',' }
+    else
+        res.render 'layerlist', { layers: [] }

@@ -2,7 +2,8 @@ extends ../index
 
 block layerlist
     ul
-        for l in layers
-            li= l
+        if layers.length > 0
+            for l in layers
+                li= l
         else
             p No layers to see here
