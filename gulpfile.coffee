@@ -6,10 +6,14 @@ reload = browser_sync.reload
 sass = require('gulp-sass')
 concat = require 'gulp-concat'
 insert = require 'gulp-insert'
+server = require './src/server'
 
 gulp.task 'browser-sync', ->
     browser_sync server: baseDir: './dist'
     return
+
+gulp.task 'server', ->
+    server.createServer()
 
 gulp.task 'compass', ->
     gulp.src('./src/stylesheets/*.scss').pipe($.plumber()).pipe($.compass(
@@ -49,6 +53,7 @@ gulp.task 'default', [
     'templates'
     'client-templates'
     'browser-sync'
+    'server'
 ], ->
     gulp.watch 'src/stylesheets/*.scss', [
         'compass'

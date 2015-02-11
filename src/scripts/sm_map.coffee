@@ -27,7 +27,7 @@ sm_leaflet_map = (element) ->
         zoomControl: true
         attribution: "Servicemap" #TODO
         layers: [sm_layer]
-    map.setView [60.171944, 24.941389], 10
+    map.setView [60.171944, 24.941389], 13
 
     L.control.scale(imperial: false, maxWidth: 200).addTo map
 
@@ -37,22 +37,4 @@ sm_leaflet_map = (element) ->
     return map: map, layer_control: layer_control
 
 
-# createmap = () ->	
-# 	map = (L.map 'map').setView [60.101, 24.561], 13
-# 	# (L.tileLayer 'http://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
-# 	# 	attribution:'ASDF'
-# 	# 	maxZoom:18).addTo map
-# 	(L.tileLayer 'http://geoserver.hel.fi/mapproxy/osm-sm/etrs_tm35fin/{z}/{x}/{y}.png',
-# 	    maxZoom: 15
-# 	    minZoom: 6
-# 	    continuousWorld: true
-# 	    tms: false).addTo map
-
-# 	map
-
-# exports.hellomap = () ->
-# 	# ($ 'document').ready console.log 'Hello I am ready'
-# 	($ 'document').ready createmap()
-
-exports.sm_map = (element) ->
-	sm_leaflet_map(element)
+exports.sm_map = sm_leaflet_map
