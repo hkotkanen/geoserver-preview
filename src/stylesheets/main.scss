@@ -17,6 +17,10 @@ body, * {
     h1, h2 {
         text-align: center;
     }
+    td, th {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 }
 
 .map {
