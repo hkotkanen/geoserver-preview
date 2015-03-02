@@ -59,7 +59,7 @@ gulp.task 'default', [
         'compass'
         reload
     ]
-    gulp.watch 'src/scripts/*.coffee', [
+    gulp.watch 'src/**/*.coffee', [
         'coffee'
         reload
     ]
