@@ -1,0 +1,3 @@
+geoserver_user: none
+geoserver_pass: none
+geoserver_baseurl: http://geoserver.hel.fi/geoserver
