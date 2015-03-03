@@ -33,8 +33,9 @@ block layerlist
                                     optgroup(label="WMS")
                                         for opt, label in wms_formats
                                             option(value=opt)= label
-                                    optgroup(label="WFS")
-                                        for opt, label in wfs_formats
-                                            option(value=opt)= label
+                                    if layer['type'] == 'VECTOR'
+                                        optgroup(label="WFS")
+                                            for opt, label in wfs_formats
+                                                option(value=opt)= label
     else
         p No layers found, but this might be a problem with connecting to Geoserver
