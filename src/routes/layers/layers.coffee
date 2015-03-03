@@ -34,22 +34,22 @@ getInitialAsyncMultipleFromGeoserver = (req, res, next) ->
     #we want to GET information from the geoserver separately for all layer names
     async.map res.locals.layerNames, restGetLayerFromGeoserver, (err, layerData) ->
         if err?
-            return next(err)
+            return next err
         # layerData is now a list of all the layerData from the individual gets
         res.locals.layerData = layerData
         next()
  
 restGetLayerFromGeoserver = (layerName, cb) ->
     name = layerName
-    url = config.get('geoserver_baseurl') + "/rest/layers/#{name}"
+    url = (config.get 'geoserver_baseurl') + "/rest/layers/#{name}"
     layerGetData = {}
     request
         'method': 'GET'
         'url': url,
         'json': true
         'auth':
-            'user': config.get('geoserver_user')
-            'pass': config.get('geoserver_pass')
+            'user': config.get 'geoserver_user'
+            'pass': config.get 'geoserver_pass'
             'sendImmediately': true # waiting for contest results in 404
         (err, resp, body) ->
             return cb err if err?

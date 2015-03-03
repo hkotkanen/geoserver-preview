@@ -1,6 +1,7 @@
 express = require 'express'
 routes = require './routes'
 path = require 'path'
+config = require 'config'
 
 exports.createServer = ->
     app = express()
@@ -10,4 +11,4 @@ exports.createServer = ->
 
     routes.attachHandlers(app)
 
-    server = app.listen 3000
+    server = app.listen (config.get 'express_port')
